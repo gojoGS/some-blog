@@ -30,7 +30,7 @@ jobs:
           ruby-version: '3.3'
 
       - name: Install asciidoctor
-        run: gem install asciidoctor rouge
+        run: gem install asciidoctor rouge tilt
 
       - name: Build site
         run: |
