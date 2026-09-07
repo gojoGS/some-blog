@@ -1,0 +1,29 @@
+= Quotes and robots
+
+[epigraph, Brian W. Kernighan, The Elements of Programming Style]
+____
+Debugging is twice as hard as writing the code in the first place. 
+Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.
+____
+
+Some interpret this classic quote the K of K&R as an instruction to write "dumb" code, that doesn't use cognitively taxing abstractions.
+An ars programmatica that takes the wrong lesson from Donald Knuth's "Premature optimization is the root of all evil." quote.
+
+== How I interpret Kernighan's quote
+
+When you write a program, you do so inside the circle of your knowledge and expertise. It is a product of everything you know, or think you know.
+If you write the "clever" program, you approach the edge of your expertise. By doing so, while fixing the bug you may find that the
+path to the solution leaves your circle. In order to find the fix, you have to expand the circle of your knowledge until it engulf the 
+necessary knowledge.
+
+One interpretation is about diligently using the tools and knowledge comfortably available to you. The other is about cautiously pushing your boundaries.
+Cautiously, don't try to start the architectural revolution on a friday afternoon by pushing some exotic pattern to prod. Do it in isolation, with benchmarks, tests, peer-review.
+
+== Where do LLMs come into the picture?
+
+If you think about it, using an LLM to produce code and programs is parachuting well outside your circle. Most probably the only thing
+you will be able to bring back to your garden of comfortable expertise is an intuition or rough understanding how you can interact with
+that thing miles outside the walls of the garden.
+
+[.lead]
+Use LLMs to expand your circle, not to get lost outside it. Use it to learn, to experiment, to short circuit bad ideas. Enrich your garden of knowledge.

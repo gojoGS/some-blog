@@ -1,0 +1,17 @@
+<div class="quoteblock<%= attr('style') == 'epigraph' ? ' epigraph' : '' %>">
+  <blockquote>
+    <%= content %>
+  </blockquote>
+</div>
+<% attribution = attr 'attribution'; citation = attr 'citetitle' %>
+<% if attribution || citation %>
+<div class="attribution">
+  <% if attribution %>
+    <span class="author">&#8212; <%= attribution %></span>
+  <% end %>
+  <% if citation %>
+    <br>
+    <cite><%= citation %></cite>
+  <% end %>
+</div>
+<% end %>

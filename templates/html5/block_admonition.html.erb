@@ -1,0 +1,8 @@
+<% style = @style.to_s.downcase %>
+<div class="admonitionblock admonition-<%= style %>">
+  <span class="icon"><%= style %></span>
+  <% if title? %>
+    <div class="title"><%= title %></div>
+  <% end %>
+  <div class="content"><%= content %></div>
+</div>

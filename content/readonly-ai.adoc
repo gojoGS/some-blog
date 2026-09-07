@@ -1,0 +1,65 @@
+= On thinking transistors
+
+[.lead]
+If you can't trust the output of an LLM, don't use the output directly.
+
+Generative LLM models have three advantages compared to how humans transform information:
+
+* faster consumption of input
+* faster production of output
+* larger context
+
+The advantages become a subject of discourse, when we introduce metrics like
+quality, style, sustainability, servicability, error rate, etc.. Metrics that
+we have no reliable and relevant ways to measure, mostly. This is the heart of
+the AI debate. We antropomorphised a tool, and measured its output like we
+would a human's.
+
+I've mentioned the airplane, as we've been in this place before, as a species.
+Before the advent of aviation, people dreamed about huge metal birds, flapping
+their mechanical wings, flying high in the sky. The Boeing 727 is not a
+man-made bird. Some may argue that it flies higher and faster than any eagle or
+hawk, but an ostruch can't fly at all. That doesn't make the ostrich a
+non-bird. Just as natural language processing and output doesn't make the LLM
+human, it doesn't make it think. It just makes it familiar.
+
+The program is not a human, just like an airplane is not a bird. Pretending it
+is and trying to morph it into one will lead one down on a path of
+disappointment, best scane scenario.
+
+And that's the 'killer-feature' of the LLM: familiarity. It doesn't have to be
+correct, fast, transparent, it has to be familiar. It has to be an extension of
+our human will. Not 'it has to be' as in it's inevitabla beacuse of some
+stubborn mathematical reason. I'd be much more interested in LLMs that generate
+virtual machine code for an LLM VM, than trying to modify the token output
+distribution to generate syntactically and semantically correct code with LSPs,
+MCPs, tools and... text files? I say 'it has to be' because that's the
+direction LLMs went since 2022, and that's our reality at the moment. We choose
+the natural human language as our interface to the humongous black box, that
+generates more and more of our digital infrastructure.
+
+[.lead]
+idk I pasted it from [.line-through]#stackoverflow# ChatGPT
+
+Yeah, you took a black-box of code from a source you've found reliable and/or
+authoritative, and gave it a shot. If it [.line-through]#works# solves your
+particular problem, it is deemed correct, if not, then your trust in the source
+evaporates.
+
+And that's the point I'm trying to make.
+
+[.lead]
+LLMs are fast token transformers of varying reliability. Treat them as
+so.
+
+I'd shake my head if someone on my team tried to write by their own hand every
+piece of software they create. Googling, copying, experimenting, using
+preexisting solutions is part of the job. LLMs are just another source. One, we
+can't cite as a single, universally uniform source, but produces of huge amount
+of information.
+
+I'd advise most people to use LLMs as what they are: consume a lot of
+information fast, and produce information, keeping in mind the varying
+correctness. If correctness isn't a concern, then don't think too much. If it
+is, your responsibility to verify your source. No amount of "ai agent
+orchestrated swarm coding farm" bullshit can change that.

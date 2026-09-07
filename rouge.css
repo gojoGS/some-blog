@@ -1,0 +1,93 @@
+.rouge table td { padding: 5px; }
+.rouge table pre { margin: 0; }
+.rouge, .rouge .w {
+  color: #22332b;
+}
+.rouge .err {
+  color: #fff;
+  background-color: #ab4642;
+}
+.rouge .c, .rouge .ch, .rouge .cd, .rouge .cm, .rouge .cpf, .rouge .c1, .rouge .cs {
+  color: #7a9c8a;
+  font-style: italic;
+}
+.rouge .cp {
+  color: #9a6b1f;
+}
+.rouge .nt {
+  color: #1f7a8c;
+}
+.rouge .o, .rouge .ow {
+  color: #4a6b5c;
+}
+.rouge .p, .rouge .pi {
+  color: #5b7368;
+}
+.rouge .gi {
+  color: #256b4d;
+}
+.rouge .gd {
+  color: #ab4642;
+}
+.rouge .gh {
+  color: #3a6ea5;
+  background-color: #eef6f0;
+  font-weight: bold;
+}
+.rouge .ge {
+  font-style: italic;
+}
+.rouge .ges {
+  font-weight: bold;
+  font-style: italic;
+}
+.rouge .gs {
+  font-weight: bold;
+}
+.rouge .k, .rouge .kn, .rouge .kp, .rouge .kr, .rouge .kv {
+  color: #14637a;
+  font-weight: bold;
+}
+.rouge .kc {
+  color: #9a6b1f;
+}
+.rouge .kt {
+  color: #9a6b1f;
+}
+.rouge .kd {
+  color: #9a6b1f;
+}
+.rouge .s, .rouge .sb, .rouge .sc, .rouge .dl, .rouge .sd, .rouge .s2, .rouge .sh, .rouge .sx, .rouge .s1 {
+  color: #256b4d;
+}
+.rouge .sa {
+  color: #9a6b1f;
+}
+.rouge .sr {
+  color: #0e7a8c;
+}
+.rouge .si {
+  color: #a16946;
+}
+.rouge .se {
+  color: #a16946;
+}
+.rouge .nn {
+  color: #1f7a8c;
+}
+.rouge .nc {
+  color: #1f7a8c;
+  font-weight: bold;
+}
+.rouge .no {
+  color: #1f7a8c;
+}
+.rouge .na {
+  color: #3a6ea5;
+}
+.rouge .m, .rouge .mb, .rouge .mf, .rouge .mh, .rouge .mi, .rouge .il, .rouge .mo, .rouge .mx {
+  color: #a04d24;
+}
+.rouge .ss {
+  color: #256b4d;
+}

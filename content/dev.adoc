@@ -1,0 +1,176 @@
+= Dev showcase
+:experimental:
+
+[.lead]
+This article is a scratchpad for testing how AsciiDoc markup renders.
+It is intentionally not linked from the index.
+
+== Headings
+
+== Level 2 heading
+
+=== Level 3 heading
+
+==== Level 4 heading
+
+Headings above this line end with a separator.
+
+== Inline formatting
+
+Normal text with *bold*, _italic_, `monospace`, *_bold italic_*, #mark#,
+and [.line-through]#strikethrough#.
+
+Subscript H~2~O and superscript E=mc^2^. Keyboard input: kbd:[Ctrl] + kbd:[T],
+menu:File[Save As], btn:[Save], and key combination kbd:[Ctrl,Alt,Del].
+
+Escape any text *not* formatted: pass:[<b>raw HTML passthrough</b>].
+
+[[anchor-demo]]
+A block anchor lives here: `+[[some-other-anchor]]+`.
+
+== Links
+
+External: https://asciidoctor.org[Asciidoctor], bare URL https://example.org,
+and relative link to the home page: link:index.html[Some(Blog)].
+
+Internal cross reference: <<anchor-demo>> or xref:anchor-demo[the anchor].
+
+== Lists
+
+Unordered:
+
+* first
+* second
+** nested one
+** nested two
+* third
+
+Ordered:
+
+. one
+. two
+.. sub a
+.. sub b
+. three
+
+Checklist:
+
+* [x] checked item
+* [ ] unchecked item
+
+Description list:
+
+term one:: definition one, spanning multiple lines
+term two:: definition two
+
+Ordered list with alpha markers:
+
+A. First
+B. Second
+
+== Code
+
+Inline code: `puts "hi"`. A fenced code block:
+
+[source,json]
+----
+{
+  "hello": "world",
+  "nested": [1, 2, 3]
+}
+----
+
+A source block with callouts:
+
+[source,ruby]
+----
+puts "hello" # <1>
+sleep 1      # <2>
+----
+<1> Prints a greeting.
+<2> Pauses a second.
+
+A literal block:
+
+....
+this   is   preformatted
+    whitespace   preserved
+....
+
+== Quotes
+
+A blockquote with attribution:
+
+[quote, Some Author, The Book]
+____
+A pithy observation about the nature of things.
+____
+
+An epigraph:
+
+[epigraph, William Shakespeare, Hamlet]
+____
+To be, or not to be.
+____
+
+== Admonitions
+
+NOTE: This is a note.
+
+TIP: This is a tip.
+
+IMPORTANT: This is important.
+
+WARNING: This is a warning.
+
+CAUTION: This is a caution.
+
+== Example and sidebar
+
+[example]
+====
+Example block, visually distinct.
+====
+
+.sidebar title
+****
+Sidebar block with a title.
+****
+
+== Table
+
+.Table caption
+[cols="2,1,1", options="header"]
+|===
+| Name | Count | Note
+
+| Alpha | 3 | first
+| Beta | 7 | second
+|===
+
+== Other
+
+A footnote here.footnote:[renders as a note at the bottom].
+
+A named footnote with reuse: A statement.footnote:refone[first reference], then the same note again.footnote:refone[]
+
+A horizontal rule:
+
+'''
+
+Hard line breaks without a blank line:
+line one +
+line two
+
+A pass-through macro with a placeholder: {max-article} is a document attribute.
+
+Checklist of rendering targets:
+
+* [x] headings
+* [x] inline formatting
+* [x] lists
+* [x] code blocks
+* [x] quotes
+* [x] admonitions
+* [x] tables
+* [ ] images (untested)

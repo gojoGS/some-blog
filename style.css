@@ -1,0 +1,593 @@
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/JetBrainsMono-Bold.woff2") format("woff2");
+}
+
+:root {
+  --bg: #eef6f0;
+  --fg: #1d332a;
+  --accent: #2f7d5c;
+  --muted: #5b7368;
+  --line: #d6e6dc;
+  --code-bg: #e2efe7;
+  --max-width: 720px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  line-height: 1.65;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+header {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 0;
+}
+
+header a {
+  color: var(--fg);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
+  font-family: "Amaranth", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+}
+
+header a:hover {
+  color: var(--accent);
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem 1.25rem 3rem;
+}
+
+footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.25rem 2.5rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.lead,
+.paragraph.lead p {
+  font-family: "Amaranth", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.25;
+  margin: 1.8em 0 0.6em;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.15em;
+  transition: text-decoration-color 0.2s ease, color 0.2s ease;
+}
+
+h1:hover,
+h2:hover,
+h3:hover,
+h4:hover,
+h5:hover,
+h6:hover {
+  text-decoration-color: var(--accent);
+}
+
+h1 {
+  font-size: 1.9rem;
+  margin-top: 0.8em;
+}
+
+body>h1 {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.8rem 1.25rem 0;
+}
+
+p {
+  margin: 0 0 1.1em;
+}
+
+ul,
+ol {
+  margin: 0 0 1.1em;
+  padding-left: 1.5em;
+}
+
+li {
+  margin: 0.3em 0;
+}
+
+li::marker {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+
+ol.arabic {
+  list-style-type: decimal;
+}
+
+.dlist dt {
+  font-family: "Amaranth", sans-serif;
+  font-weight: 700;
+  font-size: 1.05em;
+  color: var(--accent);
+  margin-top: 0.9em;
+}
+
+.dlist dt:first-child {
+  margin-top: 0;
+}
+
+.dlist dd {
+  margin: 0.15em 0 0.5em 1.25em;
+}
+
+.dlist dd p {
+  margin-bottom: 0.3em;
+}
+
+ul.checklist {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.checklist ul.checklist {
+  padding-left: 1.5em;
+}
+
+ul.checklist i.fa-check-square-o::before {
+  content: "✓";
+  color: var(--accent);
+}
+
+ul.checklist i.fa-square-o::before {
+  content: "❏";
+  color: var(--muted);
+}
+
+ul.checklist i.fa-check-square-o,
+ul.checklist i.fa-square-o {
+  font-style: normal;
+  font-family: inherit;
+  margin-right: 0.4em;
+}
+
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.lead {
+  font-size: 1.1em;
+  color: var(--fg);
+}
+
+.paragraph.lead p,
+div.paragraph.lead {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: var(--fg);
+}
+
+.strike,
+.line-through {
+  text-decoration: line-through;
+}
+
+mark {
+  background: #9fd8b4;
+  color: #0f3d28;
+  padding: 0.05em 0.25em;
+  border-radius: 4px;
+}
+
+kbd {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+    monospace;
+  font-size: 0.85em;
+  font-weight: 400;
+  line-height: 1.4;
+  font-feature-settings: "ss02" 1;
+}
+
+b.button {
+  display: inline-block;
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.1em 0.5em;
+  font-weight: 500;
+  font-size: 0.9em;
+}
+
+.menuseq {
+  font-weight: 500;
+}
+
+.menuseq b.menu {
+  color: var(--fg);
+}
+
+.menuseq b.caret {
+  color: var(--muted);
+}
+
+.keyseq kbd {
+  margin: 0 0.1em;
+}
+
+code,
+pre,
+tt {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+    monospace;
+  font-size: 0.9em;
+  font-weight: 400;
+  line-height: 1.4;
+  font-feature-settings: "ss02" 1;
+  background: var(--code-bg);
+  border-radius: 4px;
+}
+
+code {
+  padding: 0.15em 0.35em;
+}
+
+pre {
+  padding: 1em;
+  overflow-x: auto;
+  line-height: 1.5;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+pre code {
+  padding: 0;
+  background: none;
+}
+
+.conum[data-value] {
+  display: inline-block;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 50%;
+  text-align: center;
+  font-family: "Amaranth", sans-serif;
+  font-size: 0.75em;
+  font-style: normal;
+  font-weight: 700;
+  width: 1.67em;
+  height: 1.67em;
+  line-height: 1.67em;
+  position: relative;
+  top: -0.125em;
+}
+
+.conum[data-value]::after {
+  content: attr(data-value);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.conum[data-value]+b {
+  display: none;
+}
+
+b.conum:not([data-value]) {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.colist {
+  margin: 1.2em 0;
+}
+
+.colist ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.colist li {
+  display: flex;
+  align-items: flex-start;
+  margin: 0.3em 0;
+}
+
+.colist .conum[data-value] {
+  top: 0;
+  flex: 0 0 auto;
+  margin-right: 0.75em;
+  /* Align badge optical center with the first line's cap-height midline.
+     Tokens: body font-size F (16px), body line-height 1.65.
+     DM Sans (upem 1000): ascent 0.992em, descent 0.31em, capHeight 0.7em.
+     half-leading   = (1.65 - (0.992 + 0.31)) / 2 = 0.174em
+     baseline       = half-leading + ascent          = 1.166em
+     cap midline    = baseline - capHeight / 2       = 0.816em
+     badge box      = 1.67em * 0.75em (font-size)    = 1.2525em
+     badge top      = cap midline - box / 2
+                    = 0.816 - 0.62625                = 0.19em   */
+  margin-top: 0.19em;
+}
+
+.colist .conum[data-value]::after {
+  content: none;
+}
+
+.colist .text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.admonitionblock {
+  margin: 1.2em 0;
+  padding: 0.9rem 1.1rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--accent);
+  background: var(--admon-bg, var(--code-bg));
+}
+
+.admonitionblock .icon {
+  display: inline-block;
+  font-family: "Amaranth", sans-serif;
+  font-weight: 700;
+  font-size: 0.72em;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  padding: 0.18em 0.7em;
+  border-radius: 999px;
+  color: #fff;
+  background: var(--admon, var(--accent));
+  margin-bottom: 0.45em;
+}
+
+.admonitionblock .title {
+  font-weight: 700;
+  margin-bottom: 0.35em;
+}
+
+.admonitionblock .content p:last-child {
+  margin-bottom: 0;
+}
+
+.admonition-note {
+  --admon: #2f7d5c;
+  --admon-bg: #e4f1ea;
+}
+
+.admonition-tip {
+  --admon: #1f7a8c;
+  --admon-bg: #e2f1f3;
+}
+
+.admonition-important {
+  --admon: #3a6ea5;
+  --admon-bg: #e7eef6;
+}
+
+.admonition-caution {
+  --admon: #b07d2e;
+  --admon-bg: #f6efe0;
+}
+
+.admonition-warning {
+  --admon: #a8452f;
+  --admon-bg: #f6e7e2;
+}
+
+blockquote {
+  margin: 1.2em 0;
+  padding: 0.2em 1.2em;
+  border-left: 3px solid var(--accent);
+  color: var(--muted);
+}
+
+.quoteblock {
+  margin: 1.4em 0;
+  padding: 1.1rem 1.25rem;
+  background: var(--code-bg);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+}
+
+.quoteblock:has(+ .attribution) {
+  margin-bottom: 0.25em;
+}
+
+.quoteblock blockquote {
+  margin: 0;
+  padding: 0;
+  border-left: 0;
+  color: var(--fg);
+  font-size: 1.05em;
+  font-style: italic;
+}
+
+.quoteblock blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.quoteblock.epigraph {
+  text-align: center;
+  border-right: 3px solid var(--accent);
+  border-radius: 8px;
+}
+
+.quoteblock.epigraph blockquote {
+  font-style: italic;
+}
+
+.quoteblock.epigraph blockquote p {
+  text-align: center;
+}
+
+.quoteblock+.attribution {
+  margin: 0 0 1.2em;
+  text-align: right;
+  font-family: "Amaranth", sans-serif;
+  font-style: normal;
+  font-size: 1em;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.quoteblock+.attribution cite {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.exampleblock,
+.sidebarblock {
+  margin: 1.4em 0;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+}
+
+.exampleblock {
+  background: #fff;
+  border: 1px solid #c4d8cc;
+  box-shadow: 0 1px 3px rgba(31, 61, 46, 0.07);
+}
+
+.sidebarblock {
+  background: var(--code-bg);
+  border-left: 3px solid var(--accent);
+}
+
+.exampleblock .title,
+.sidebarblock .title {
+  margin: -1rem -1.25rem 0.6rem;
+  padding: 0.5rem 1.25rem;
+  border-bottom: 1px solid var(--line);
+  border-radius: 8px 8px 0 0;
+  background: #e4f1ea;
+  font-family: "Amaranth", sans-serif;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.exampleblock .content p:last-child,
+.sidebarblock .content p:last-child {
+  margin-bottom: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2em 0;
+}
+
+th,
+td {
+  border: 1px solid var(--line);
+  padding: 0.5em 0.75em;
+  text-align: left;
+}
+
+th {
+  background: var(--code-bg);
+}
+
+hr {
+  border: 0;
+  border-top: 2px solid var(--accent);
+  opacity: 0.6;
+  margin: 2em auto;
+  max-width: 12em;
+}
+
+#footnotes {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.25rem 2.5rem;
+  color: var(--muted);
+  font-size: 0.85em;
+  line-height: 1.5;
+}
+
+#footnotes .footnote {
+  margin: 0.4em 0;
+}
+
+sup.footnote,
+sup.footnoteref {
+  font-size: 0.8em;
+}
+
+sup.footnote a,
+sup.footnoteref a,
+#footnotes a {
+  color: var(--accent);
+  text-decoration: none;
+}

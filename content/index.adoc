@@ -1,0 +1,7 @@
+= Some(Blog)
+
+[.lead]
+If you don't believe in something, you'll fall for everything
+
+* link:quotes-and-robots.html[Quotes and robots]
+* link:readonly-ai.html[On thinking transistors]
