@@ -1,8 +1,5 @@
 = On thinking transistors
 
-[.lead]
-If you can't trust the output of an LLM, don't use the output directly.
-
 Generative LLM models have three advantages compared to how humans transform information:
 
 * faster consumption of input
@@ -15,48 +12,55 @@ we have no reliable and relevant ways to measure, mostly. This is the heart of
 the AI debate. We antropomorphised a tool, and measured its output like we
 would a human's.
 
-I've mentioned the airplane, as we've been in this place before, as a species.
 Before the advent of aviation, people dreamed about huge metal birds, flapping
 their mechanical wings, flying high in the sky. The Boeing 727 is not a
 man-made bird. Some may argue that it flies higher and faster than any eagle or
-hawk, but an ostruch can't fly at all. That doesn't make the ostrich a
-non-bird. Just as natural language processing and output doesn't make the LLM
-human, it doesn't make it think. It just makes it familiar.
+hawk, but an ostruch can't fly at all. That doesn't make an airplane a bird or 
+more birdlike than an ostrich.  
 
-The program is not a human, just like an airplane is not a bird. Pretending it
-is and trying to morph it into one will lead one down on a path of
-disappointment, best scane scenario.
+[.lead]
+Human-like thinking mustn't be the goal.
+
+I won't argue about the inherent nature of humans, if there is one. Sometimes the capabilities 
+of the human mind and thinking amazes me. It's wonderful to see a child discovering
+the intrigues of language just by observing, figuring out the "rules" with trial and error and time.
+And sometimes the mind made from the same genetic template frustrates me, makes me sad or angry.
+
+It doesn't matter if the aggregate output of the human intellect is positive or negative, I don't 
+want machines, programs and LLMs to aim for human thinking. We lie, intrigue, we ignore things because
+of laziness, we are stubborn. I don't want to come up with fake scenarios, change wording,
+capitalize, rephrase and repeate instructions just to make a program do what I want.
+
+[.lead]
+Natural language processing and output doesn't make the LLM
+human, it doesn't make it think. It just makes it familiar.
 
 And that's the 'killer-feature' of the LLM: familiarity. It doesn't have to be
 correct, fast, transparent, it has to be familiar. It has to be an extension of
 our human will. Not 'it has to be' as in it's inevitabla beacuse of some
-stubborn mathematical reason. I'd be much more interested in LLMs that generate
+stubborn mathematical reason. 
+
+I'd be much more interested in LLMs that generate
 virtual machine code for an LLM VM, than trying to modify the token output
 distribution to generate syntactically and semantically correct code with LSPs,
-MCPs, tools and... text files? I say 'it has to be' because that's the
+MCPs, tools and... text files? 
+
+I say 'it has to be' because that's the
 direction LLMs went since 2022, and that's our reality at the moment. We choose
 the natural human language as our interface to the humongous black box, that
 generates more and more of our digital infrastructure.
-
-[.lead]
-idk I pasted it from [.line-through]#stackoverflow# ChatGPT
-
-Yeah, you took a black-box of code from a source you've found reliable and/or
-authoritative, and gave it a shot. If it [.line-through]#works# solves your
-particular problem, it is deemed correct, if not, then your trust in the source
-evaporates.
-
-And that's the point I'm trying to make.
 
 [.lead]
 LLMs are fast token transformers of varying reliability. Treat them as
 so.
 
 I'd shake my head if someone on my team tried to write by their own hand every
-piece of software they create. Googling, copying, experimenting, using
-preexisting solutions is part of the job. LLMs are just another source. One, we
-can't cite as a single, universally uniform source, but produces of huge amount
-of information.
+piece of software they create. Googling, checking StackOverflow, copying, experimenting, using
+preexisting solutions is part of the job. But verifying the source if the developer's responsibility. 
+I'm just as frustrated when I ask someone what this code does and they say "idk I copied it from StackOverflow"
+as when the person says "idk AI wrote it". LLMs are just another source. One, we
+can't cite as a single, universally uniform quality source, but produces of huge amount
+of information. 
 
 I'd advise most people to use LLMs as what they are: consume a lot of
 information fast, and produce information, keeping in mind the varying
