@@ -12,10 +12,13 @@ pdf:
 	asciidoctor-pdf -D ${DESTINATION}/pdf/ ${SOURCE} 
 
 html:
-	asciidoctor -a source-highlighter=rouge -D ${DESTINATION}/html/ -T ${TEMPLATES} -b html ${SOURCE}
+	asciidoctor -D ${DESTINATION}/html/ -T ${TEMPLATES} -b html ${SOURCE}
 	${CP} style.css ${DESTINATION}/html/style.css
-	${CP} rouge.css ${DESTINATION}/html/rouge.css
 	${CP} favicon.ico ${DESTINATION}/html/favicon.ico
+	${CP} manifest.webmanifest ${DESTINATION}/html/manifest.webmanifest
+	${CP} service-worker.js ${DESTINATION}/html/service-worker.js
+	${CP} -r img ${DESTINATION}/html/img
+	${CP} -r vendor ${DESTINATION}/html/vendor
 	${CP} -r fonts ${DESTINATION}/html/fonts
 
 clean:

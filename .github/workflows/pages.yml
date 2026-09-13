@@ -30,14 +30,17 @@ jobs:
           ruby-version: '3.3'
 
       - name: Install asciidoctor
-        run: gem install asciidoctor rouge tilt
+        run: gem install asciidoctor tilt
 
       - name: Build site
         run: |
-          asciidoctor -a source-highlighter=rouge -D dist/html -T templates -b html content/*.adoc
+          asciidoctor -D dist/html -T templates -b html content/*.adoc
           cp style.css dist/html/
-          cp rouge.css dist/html/
           cp favicon.ico dist/html/
+          cp manifest.webmanifest dist/html/
+          cp service-worker.js dist/html/
+          cp -r img dist/html/
+          cp -r vendor dist/html/
           cp -r fonts dist/html/
 
       - name: Configure Pages

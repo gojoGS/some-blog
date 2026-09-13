@@ -4,11 +4,14 @@
   <meta charset="utf-8">
   <title><%= document.title %></title>
   <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="img/icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#eef6f0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amaranth:wght@400;700&family=DM+Sans:opsz,wght@9..40,300..700&display=swap" rel="stylesheet">
   <%= docinfo %>
-  <link rel="stylesheet" href="rouge.css">
+  <link rel="stylesheet" href="vendor/highlight/github.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -41,7 +44,45 @@
     </div>
   <% end %>
 
+  <script src="vendor/highlight/highlight.min.js"></script>
   <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker
+          .register("service-worker.js")
+          .catch(function (err) {
+            console.error("Service Worker error:", err);
+          });
+      });
+    }
+  </script>
+  <script>
+    document.querySelectorAll("main pre code").forEach(function (code) {
+      code.querySelectorAll("b.conum").forEach(function (conum, i) {
+        var token = "\uE000conum" + i + "\uE001";
+        code.dataset.conums =
+          (code.dataset.conums || "") + token + ":" + conum.outerHTML + ";";
+        conum.replaceWith(document.createTextNode(token));
+      });
+    });
+
+    hljs.configure({ ignoreUnescapedHTML: true });
+    hljs.highlightAll();
+
+    document.querySelectorAll("main pre code").forEach(function (code) {
+      if (!code.dataset.conums) return;
+      var html = code.innerHTML;
+      code.dataset.conums.split(";").forEach(function (pair) {
+        if (!pair) return;
+        var i = pair.indexOf(":");
+        html = html
+          .split(pair.slice(0, i))
+          .join(pair.slice(i + 1));
+      });
+      code.innerHTML = html;
+      delete code.dataset.conums;
+    });
+
     document
       .querySelectorAll("main h2, main h3, main h4, main h5, main h6, body > h1")
       .forEach(function (h) {
