@@ -591,3 +591,90 @@ sup.footnoteref a,
   color: var(--accent);
   text-decoration: none;
 }
+
+/* --- Responsive --- */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+p,
+li,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+th,
+td {
+  overflow-wrap: break-word;
+}
+
+header,
+body>h1,
+main,
+footer,
+#footnotes {
+  padding-left: max(1.25rem, env(safe-area-inset-left));
+  padding-right: max(1.25rem, env(safe-area-inset-right));
+}
+
+.tableblock {
+  overflow-x: auto;
+}
+
+@media (max-width: 640px) {
+  header {
+    padding-top: 1.25rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .lead,
+  .paragraph.lead p,
+  div.paragraph.lead {
+    font-size: 1.1em;
+  }
+
+  main .ulist ul li {
+    margin: 0;
+  }
+
+  main .ulist ul li p {
+    margin: 0;
+  }
+
+  main .ulist ul li a {
+    display: block;
+    padding: 0.6em 0.25em;
+  }
+
+  .admonitionblock {
+    padding: 0.8rem 1rem;
+  }
+
+  .quoteblock,
+  .exampleblock,
+  .sidebarblock {
+    padding: 0.9rem 1rem;
+  }
+
+  pre {
+    padding: 0.75em 0.9em;
+  }
+}
+
+@media (max-width: 360px) {
+  h1 {
+    font-size: 1.45rem;
+  }
+
+  header a {
+    font-size: 1.15rem;
+  }
+}
