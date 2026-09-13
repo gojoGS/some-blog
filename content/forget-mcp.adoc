@@ -1,0 +1,128 @@
+= Forget MCP, not the past 
+
+MCP is stateful JSON-RPC. MCP 2.0 is stateless JSON-RPC. You're now a 10x senior AI specialist, congrats.
+
+I may be too harsh with the protocol. Discoverability by agents sounds nice. My gripe with MCP comes from the fact
+that it's nothing new. The main argument using it is that harnesses support it, and agents can discover what resources,
+tools and operations are available on the server. 
+
+Guess what, there already is a way to transport a representation of some server resource. It has stellar support on any software 
+platform. The bare install of some Windows editions and Linux distros bundle a client for using it. Even your browser can 
+use it.
+
+Yeah, it's REST.
+
+== You don't know the REST....
+
+When you look at https://ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm[the soul of Roy Fielding's description of REST],
+it's fucking awesome. I mean, there are inventions and there are discoveries. REST is the latter.
+It feels like a natural product of how things work on the web. Its idea is simple.
+When described it feels like how a human would navigate and discover a system. And that's nothing how I'd describe 
+the web APIs I've worked on.
+
+Even as someone who had the source code and the [.line-through]#documentation# stale Confluence document with some details,
+I wouldn't be the consumer of the APIs companies I worked at developed. I don't want to be GNU/Linux guy,
+but they were *RESTish*  HTTP APIs with some JSON. They had some parts of REST, minus the good stuff.
+No HATEOAS. No proper caching. Everything is a 400 (I was glad when that project ended). Each resource has at most one endpoint, end of story. 
+
+This is not the type of architecture you write home about.
+
+For me what encapsulates REST, is that if you sat down with a comfy HTTP client and the base URL of the API, you can
+explore it. `GET https://api.example.com/` is the `man man` or `command --help` of the web. 
+
+== The REST is [.line-through]#history# the future.
+
+We have a dynamic client at our hands. *Use it*
+
+I want every major service's API to work like this:
+
+[source,http]
+----
+GET https://train.org
+Accept: application/json
+----
+
+[source,json]
+----
+{
+  "_links": {
+    "docs": {
+      "href": "/docs"
+    },
+    "trains": { "href": "/trains"},    
+    "stations": { "href": "/stations"},    
+    "tickets": { 
+      "href": "/ticket",
+      "docs": {
+        "href": "/docs/payment"    
+      }
+    },    
+  }
+}
+----
+
+This style represent not only the state, but the *allowed state transitions* of a resource: 
+
+[source,jsonc]
+----
+// GET /invitation/15623
+{
+  "status": "PENDING"
+  "_links": {
+    "action-remind": {
+      "href": "/invitation/15623/reminders",
+      "docs": {
+        "href": "/docs/invitation/action-remind"
+      } 
+    },
+    "action-cancel": {
+      "href": "/invitations/15623/status",
+      "docs": {
+        "href": "/docs/invitation/action-cancel"
+      }
+    }
+  }
+}
+----
+
+[source,jsonc]
+----
+// GET /invitation/15623
+{
+  "status": "ACCEPTED"
+  "_links": {
+  }
+}
+----
+
+This provides everything the LLM agent driven client or a human needs. Description of resources, documentation, allowed operations. Meanwhile the MCP exposes 
+all possible operations. The documentation may be inaccessible for an agent, belong to an older version.
+
+[source]
+----
+invitation_create(...)
+invitation_send_reminder(...)
+invitation_cancel(...)
+invitation_get(...)
+----
+
+The MCP could express the same operations, but not the useful parts, where most of the time is spent by agents. Discovering 
+requirements, valid schema, documentation, version specific behavior, allowed operations in a state of a resource. And you don't need
+a special client for this. If you want to check what the agent consumes, use curl, Postman, IntelliJ, Python, your browser. You can't work out some 
+architectural detail? Most probably someone has, and published it.
+
+== So why not have some REST?
+
+Because people still don't know or bother to think in REST terms. They work, invent their own 
+conventions until someone rewrites them in their own subset of RESTful traits and more ad-hoc
+conventions plus legacy support.
+
+I've found that the industry has strayed away from understanding itself. We barely try to interpret our digital civilization,
+but we change it all the more. We now live in intervals between model releases and headlines. We can make almost anything with AI,
+but we have no values or ideas that measure the value of doing something. We exist from prompt to prompt, rarely asking whether 
+what we build is even necesarry. Does it already exist? Are we just reinventing the wheel with extra steps?
+
+I think educating ourselves and obtaining some sort of computer culture literacy gives us valuable things.
+We gain perspective of things both old and new. See beyond marketing terms and mania, and see things as their 
+true substance. We can create a sense of value and philosophy by understanding where we came from, because without that,
+we have no way of knowing or changing where we're heading.
