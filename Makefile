@@ -6,7 +6,7 @@ TEMPLATES=templates
 CP=$(shell sh -c 'cygpath -w /usr/bin')/cp.exe
 RM=$(shell sh -c 'cygpath -w /usr/bin')/rm.exe
 
-all: pdf html
+all: html
 
 pdf:
 	asciidoctor-pdf -D ${DESTINATION}/pdf/ ${SOURCE} 
@@ -25,5 +25,5 @@ clean:
 	${RM} -rf ${DESTINATION}
 
 serve: html
-	npx browser-sync start --server ${DESTINATION}/html --files "${DESTINATION}/html/**/*" --no-notify
+	npx browser-sync start --server dist/html --files "dist/html/**/*" --no-notify --no-ui --port 3201 
 
