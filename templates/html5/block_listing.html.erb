@@ -1,6 +1,11 @@
 <div class="listingblock">
   <% if title? %>
-  <div class="title"><%= captioned_title %></div>
+  <div class="title">
+    <span class="title-text"><%= captioned_title %></span>
+    <% if attr? :language %>
+    <span class="title-lang"><%= attr :language %></span>
+    <% end %>
+  </div>
   <% end %>
   <div class="content">
     <% if attr? :language %>

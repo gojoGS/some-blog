@@ -72,6 +72,18 @@ B. Second
 
 Inline code: `puts "hi"`. A fenced code block:
 
+.A simple Java example
+[source,java]
+----
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello");
+    }
+}
+----
+
+A fenced code block:
+
 [source,json]
 ----
 {
