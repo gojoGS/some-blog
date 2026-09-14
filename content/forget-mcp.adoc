@@ -1,8 +1,5 @@
 = Forget MCP, not the past
 
-// ANNOTATION (Formatting): several other lines still carry trailing whitespace (verified
-// against the trimmed ones); worth a full sweep.
-
 MCP is a glorified stateful JSON-RPC spec. MCP v2026-07-28 (aka 2.0) is a glorified stateless JSON-RPC. You're now a 10x senior AI specialist, congrats.
 
 I may be too harsh with the protocol. Discoverability by agents sounds nice. My gripe with MCP comes from the fact
@@ -32,9 +29,8 @@ No HATEOAS. No proper caching. Everything is a 400 (I was glad when that project
 This is not the type of architecture you write home about.
 
 For me, what encapsulates REST is that if you sat down with a comfy HTTP client and the base URL of the API, you can
-explore it. `GET https://api.example.com/` is the `man man` or `command --help` of the web. 
+explore it. `GET https://api.example.com/` is the `man man` or `command --help` of the web.
 
-// ANNOTATION (Markup): inline role in a section title may not render in all backends; verify output.
 == The REST is [.line-through]#history# the future.
 
 We have a dynamic client in our hands. *Use it.*
@@ -115,14 +111,9 @@ invitation_cancel(...)
 invitation_get(...)
 ----
 
-// ANNOTATION (Hyphenation): "version specific behavior" -> "version-specific behavior".
-// ANNOTATION (Clarity): "in a state of a resource" -> "given the state of a resource".
-// ANNOTATION (Clarity): comma splice; "parts, where ... time is spent" treats things as
-// places. Suggest "...not the parts that matter most to agents, where agents spend
-// most of their time".
-The MCP could express the same operations, but not the useful parts, where most of the time is spent by agents. Discovering 
-requirements, valid schema, documentation, version specific behavior, 
-allowed operations in a state of a resource. And you don't need
+The MCP could express the same operations, but not the parts that are time consuming for an agent.
+Discovering requirements, valid schema, documentation, version-specific-behavior, 
+allowed operations gievn the state of a resource. And you don't need
 a special client for this. If you want to check what the agent consumes, use curl, Postman, IntelliJ, Python, your browser. You can't work out some 
 architectural detail? Most probably someone has, and published it.
 
@@ -135,21 +126,14 @@ conventions plus legacy support.
 // ANNOTATION (Cohesion): abrupt pivot from the concrete REST/MCP argument to the
 // civilizational reflection; add a bridging sentence to keep the "story" chain.
 // ANNOTATION (Typo): "necesarry" (later in paragraph) -> "necessary".
-// ANNOTATION (Repetition): "values or ideas that measure the value" repeats "value".
-// ANNOTATION (Wording): "reinventing the wheel with extra steps" mixes idioms — pick
-// "reinventing the wheel" or "the same thing with extra steps".
 I've found that the industry has strayed away from understanding itself. We barely try to interpret our digital civilization,
 but we change it all the more. We now live in intervals between model releases and headlines. We can make almost anything with AI,
-but we have no values or ideas that measure the value of doing something. We exist from prompt to prompt, rarely asking whether 
-what we build is even necesarry. Does it already exist? Are we just reinventing the wheel with extra steps?
+but we have no thought for measuring the value of doing something. We exist from prompt to prompt, rarely asking whether 
+what we build is even necesarry.
 
-// ANNOTATION (Wording): "computer culture literacy" is an awkward compound; "valuable
-// things" is vague — name the concrete benefit.
-I think educating ourselves and obtaining some sort of computer culture literacy gives us valuable things.
-// ANNOTATION (Grammar/Repetition): "perspective of" -> "perspective on"; "see things as
-// their true substance" is ungrammatical (-> "for what they are"); "See ... see" repeats.
-We gain perspective of things both old and new. See beyond marketing terms and mania, and see things as their
-true substance. We can create a sense of value and philosophy by understanding where we came from, because without that,
+I think educating ourselves and obtaining some sort of software culture and literacy gives us a shoulder to stand on.
+We gain perspective on things both old and new. See beyond marketing terms and mania, and recognize the substance of things.
+We can create a sense of value and philosophy by understanding where we came from, because without that,
 we have no way of knowing or changing where we're heading.
 
 // ANNOTATION (Theme): title promises "not the past", but the closing paragraph argues
