@@ -1,10 +1,14 @@
-= Forget MCP, not the past 
+= Forget MCP, not the past
 
-MCP is stateful JSON-RPC. MCP 2.0 is stateless JSON-RPC. You're now a 10x senior AI specialist, congrats.
+// ANNOTATION (Formatting): several other lines still carry trailing whitespace (verified
+// against the trimmed ones); worth a full sweep.
+
+MCP is a glorified stateful JSON-RPC spec. MCP v2026-07-28 (aka 2.0) is a glorified stateless JSON-RPC. You're now a 10x senior AI specialist, congrats.
 
 I may be too harsh with the protocol. Discoverability by agents sounds nice. My gripe with MCP comes from the fact
-that it's nothing new. The main argument using it is that harnesses support it, and agents can discover what resources,
-tools and operations are available on the server. 
+that it's nothing new.
+The main argument for using it is popularity. Most company trying to ride the AI train release an MCP server and calls it a day.
+It exposes service resources and tools in a way that makes consuming them with any non-agent tool awkward.
 
 Guess what, there already is a way to transport a representation of some server resource. It has stellar support on any software 
 platform. The bare install of some Windows editions and Linux distros bundle a client for using it. Even your browser can 
@@ -12,27 +16,28 @@ use it.
 
 Yeah, it's REST.
 
-== You don't know the REST....
+== You don't know the REST...
 
 When you look at https://ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm[the soul of Roy Fielding's description of REST],
 it's fucking awesome. I mean, there are inventions and there are discoveries. REST is the latter.
 It feels like a natural product of how things work on the web. Its idea is simple.
-When described it feels like how a human would navigate and discover a system. And that's nothing how I'd describe 
-the web APIs I've worked on.
+When described, it feels like how humans navigate and discover systems.
+And that's nothing like how I'd describe the web APIs I've worked on.
 
-Even as someone who had the source code and the [.line-through]#documentation# stale Confluence document with some details,
-I wouldn't be the consumer of the APIs companies I worked at developed. I don't want to be GNU/Linux guy,
-but they were *RESTish*  HTTP APIs with some JSON. They had some parts of REST, minus the good stuff.
-No HATEOAS. No proper caching. Everything is a 400 (I was glad when that project ended). Each resource has at most one endpoint, end of story. 
+Even as someone who had the source code and [.line-through]#the documentation# a stale Confluence document with some details,
+I wouldn't be the consumer of the APIs the companies I worked at developed. I don't want to be the GNU/Linux guy,
+but they were *RESTish* HTTP APIs with some JSON. They had some parts of REST, minus the good stuff.
+No HATEOAS. No proper caching. Everything is a 400 (I was glad when that project ended). Each resource has at most one endpoint, end of story.
 
 This is not the type of architecture you write home about.
 
-For me what encapsulates REST, is that if you sat down with a comfy HTTP client and the base URL of the API, you can
+For me, what encapsulates REST is that if you sat down with a comfy HTTP client and the base URL of the API, you can
 explore it. `GET https://api.example.com/` is the `man man` or `command --help` of the web. 
 
+// ANNOTATION (Markup): inline role in a section title may not render in all backends; verify output.
 == The REST is [.line-through]#history# the future.
 
-We have a dynamic client at our hands. *Use it*
+We have a dynamic client in our hands. *Use it.*
 
 I want every major service's API to work like this:
 
@@ -49,56 +54,60 @@ Accept: application/json
     "docs": {
       "href": "/docs"
     },
-    "trains": { "href": "/trains"},    
-    "stations": { "href": "/stations"},    
-    "tickets": { 
-      "href": "/ticket",
+    "trains": { "href": "/trains"},
+    "stations": { "href": "/stations"},
+    "tickets": {
+      "href": "/tickets",
       "docs": {
-        "href": "/docs/payment"    
-      }
-    },    
-  }
-}
-----
-
-This style represent not only the state, but the *allowed state transitions* of a resource: 
-
-[source,jsonc]
-----
-// GET /invitation/15623
-{
-  "status": "PENDING"
-  "_links": {
-    "action-remind": {
-      "href": "/invitation/15623/reminders",
-      "docs": {
-        "href": "/docs/invitation/action-remind"
-      } 
-    },
-    "action-cancel": {
-      "href": "/invitations/15623/status",
-      "docs": {
-        "href": "/docs/invitation/action-cancel"
+        "href": "/docs/payment"
       }
     }
   }
 }
 ----
 
+This style represents not only the state, but the *allowed state transitions* of a resource: 
+
+.An instance of the invitation resource in pending state
 [source,jsonc]
 ----
 // GET /invitation/15623
 {
-  "status": "ACCEPTED"
+  "status": "PENDING",
+  "_links": {
+    "action-remind": {
+      "href": "/invitations/15623/reminders",
+      "docs": {
+        "href": "/docs/invitations/action-remind"
+      } 
+    },
+    "action-cancel": {
+      "href": "/invitations/15623/status",
+      "docs": {
+        "href": "/docs/invitations/action-cancel"
+      }
+    }
+  }
+}
+----
+
+.The same invitation after it has been accepted.
+[source,jsonc]
+----
+// GET /invitation/15623
+{
+  "status": "ACCEPTED",
   "_links": {
   }
 }
 ----
 
-This provides everything the LLM agent driven client or a human needs. Description of resources, documentation, allowed operations. Meanwhile the MCP exposes 
-all possible operations. The documentation may be inaccessible for an agent, belong to an older version.
+This provides everything the LLM-agent-driven client or a human needs.
+Description of resources, documentation, allowed operations. Meanwhile MCP exposes all possible operations.
+The documentation may be inaccessible to an agent, or may belong to an older version.
 
-[source]
+.Available operations for the agent upon discovery.
+[source,text]
 ----
 invitation_create(...)
 invitation_send_reminder(...)
@@ -106,23 +115,42 @@ invitation_cancel(...)
 invitation_get(...)
 ----
 
+// ANNOTATION (Hyphenation): "version specific behavior" -> "version-specific behavior".
+// ANNOTATION (Clarity): "in a state of a resource" -> "given the state of a resource".
+// ANNOTATION (Clarity): comma splice; "parts, where ... time is spent" treats things as
+// places. Suggest "...not the parts that matter most to agents, where agents spend
+// most of their time".
 The MCP could express the same operations, but not the useful parts, where most of the time is spent by agents. Discovering 
-requirements, valid schema, documentation, version specific behavior, allowed operations in a state of a resource. And you don't need
+requirements, valid schema, documentation, version specific behavior, 
+allowed operations in a state of a resource. And you don't need
 a special client for this. If you want to check what the agent consumes, use curl, Postman, IntelliJ, Python, your browser. You can't work out some 
 architectural detail? Most probably someone has, and published it.
 
 == So why not have some REST?
 
-Because people still don't know or bother to think in REST terms. They work, invent their own 
+Because people still don't know or bother to think in REST terms. Devs work, invent their own 
 conventions until someone rewrites them in their own subset of RESTful traits and more ad-hoc
 conventions plus legacy support.
 
+// ANNOTATION (Cohesion): abrupt pivot from the concrete REST/MCP argument to the
+// civilizational reflection; add a bridging sentence to keep the "story" chain.
+// ANNOTATION (Typo): "necesarry" (later in paragraph) -> "necessary".
+// ANNOTATION (Repetition): "values or ideas that measure the value" repeats "value".
+// ANNOTATION (Wording): "reinventing the wheel with extra steps" mixes idioms — pick
+// "reinventing the wheel" or "the same thing with extra steps".
 I've found that the industry has strayed away from understanding itself. We barely try to interpret our digital civilization,
 but we change it all the more. We now live in intervals between model releases and headlines. We can make almost anything with AI,
 but we have no values or ideas that measure the value of doing something. We exist from prompt to prompt, rarely asking whether 
 what we build is even necesarry. Does it already exist? Are we just reinventing the wheel with extra steps?
 
+// ANNOTATION (Wording): "computer culture literacy" is an awkward compound; "valuable
+// things" is vague — name the concrete benefit.
 I think educating ourselves and obtaining some sort of computer culture literacy gives us valuable things.
-We gain perspective of things both old and new. See beyond marketing terms and mania, and see things as their 
+// ANNOTATION (Grammar/Repetition): "perspective of" -> "perspective on"; "see things as
+// their true substance" is ungrammatical (-> "for what they are"); "See ... see" repeats.
+We gain perspective of things both old and new. See beyond marketing terms and mania, and see things as their
 true substance. We can create a sense of value and philosophy by understanding where we came from, because without that,
 we have no way of knowing or changing where we're heading.
+
+// ANNOTATION (Theme): title promises "not the past", but the closing paragraph argues
+// for history/culture; make the payoff explicit to tie the essay together.
